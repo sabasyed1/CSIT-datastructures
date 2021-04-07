@@ -1,0 +1,304 @@
+// ************************************************************
+// Saba Syed   
+// CSIT212-01: Data Structures and Algorithms Section 1
+// Professor Boxiang Dong
+// February 23, 2021
+// Task 1(80 pts). Implement  the Merge  Sort algorithm  as  
+// discussed  in Lecture 2.  (Hint:  use the function checked 
+// sorted to check if your output is indeed sorted.)
+// ************************************************************
+public class Sort2 {
+
+public static int[] merge_sort (int[] array, int p, int r) {
+
+if (p < r)
+
+        {
+
+            // Find the middle point
+
+            int mid = (p+r)/2;
+
+  
+
+            // Sort first and second halves
+
+            sort(arr, p, mid);
+
+            sort(arr , mid+1, r);
+
+  
+
+            // Merge the sorted halves
+
+            merge(arr, p, mid, r);
+
+        }
+
+    }
+
+/*
+
+* fill in your program
+
+*/
+
+return array;
+
+}
+
+public static int[] merge (int[] array, int p, int q, int r) {
+
+// Find sizes of two subarrays to be merged
+
+        int n1 = q - p + 1;
+
+        int n2 = r - q;
+
+  
+
+        /* Create temp arrays */
+
+        int LEFT[] = new int [n1];
+
+        int RIGHT[] = new int [n2];
+
+  
+
+        /*Copy data to temp arrays*/
+
+        for (int i=0; i<n1; ++i)
+
+            LEFT[i] = arr[p + i];
+
+        for (int j=0; j<n2; ++j)
+
+            RIGHT[j] = arr[q + 1+ j];
+
+  
+
+  
+
+        /* Merge the temp arrays */
+
+  
+
+        // Initial indexes of first and second subarrays
+
+        int i = 0, j = 0;
+
+  
+
+        // Initial index of merged subarry array
+
+        int k = p;
+
+        while (i < n1 && j < n2)
+
+        {
+
+            if (LEFT[i] <= RIGHT[j])
+
+            {
+
+                arr[k] = LEFT[i];
+
+                i++;
+
+            }
+
+            else
+
+            {
+
+                arr[k] = RIGHT[j];
+
+                j++;
+
+            }
+
+            k++;
+
+        }
+
+  
+
+        /* Copy remaining elements of L[] if any */
+
+        while (i < n1)
+
+        {
+
+            arr[k] = LEFT[i];
+
+            i++;
+
+            k++;
+
+        }
+
+  
+
+        /* Copy remaining elements of R[] if any */
+
+        while (j < n2)
+
+        {
+
+            arr[k] = RIGHT[j];
+
+            j++;
+
+            k++;
+
+        }
+
+    }
+
+/*
+
+* fill in your program
+
+*/
+
+return array;
+
+}
+
+/*
+
+* n: the size of the output array
+
+* k: the maximum value in the array
+
+*/
+
+public static int[] generate_random_array (int n, int k) {
+
+List<Integer> list;
+
+int[] array;
+
+Random rnd;
+
+rnd = new Random(System.currentTimeMillis());
+
+list = new ArrayList<Integer> ();
+
+for (int i = 1; i <= n; i++)
+
+list.add(new Integer(rnd.nextInt(k+1)));
+
+Collections.shuffle(list, rnd);
+
+array = new int[n];
+
+for (int i = 0; i < n; i++)
+
+array[i] = list.get(i).intValue();
+
+return array;
+
+}
+
+/*
+
+* n: the size of the output array
+
+*/
+
+public static int[] generate_random_array (int n) {
+
+List<Integer> list;
+
+int[] array;
+
+list = new ArrayList<Integer> ();
+
+for (int i = 1; i <= n; i++)
+
+list.add(new Integer(i));
+
+Collections.shuffle(list, new
+
+Random(System.currentTimeMillis()));
+
+array = new int[n];
+
+for (int i = 0; i < n; i++)
+
+array[i] = list.get(i).intValue();
+
+return array;
+
+}
+
+/*
+
+* Input: an integer array
+
+* Output: true if the array is acsendingly sorted, otherwise return
+
+false
+
+*/
+
+public static boolean check_sorted (int[] array) {
+
+for (int i = 1; i < array.length; i++) {
+
+if (array[i-1] > array[i])
+
+return false;
+
+}
+
+return true;
+
+}
+
+public static void print_array (int[] array) {
+
+for (int i = 0; i < array.length; i++)
+
+System.out.print(array[i] + ", ");
+
+System.out.println();
+
+}
+
+public static void main(String[] args) {
+
+// TODO Auto-generated method stub
+
+System.out.println("Merge sort starts ------------------
+
+");
+
+for (int n = 100000; n <= 1000000; n=n+100000) {
+
+int[] array = Sort2.generate_random_array(n);
+
+//Sort.print_array(array);
+
+long t1 = System.currentTimeMillis();
+
+array = Sort2.merge_sort(array, 0, n-1);
+
+long t2 = System.currentTimeMillis();
+
+long t = t2 - t1;
+
+//Sort.print_array(array);
+
+boolean flag = Sort2.check_sorted(array);
+
+System.out.println(n + "," + t + "," + flag);
+
+}
+
+System.out.println("Merge sort ends ------------------");
+
+}
+
+}
