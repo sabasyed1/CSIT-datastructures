@@ -1,7 +1,5 @@
 // ************************************************************
 // Saba Syed   
-// CSIT212-01: Data Structures and Algorithms Section 1
-// Professor Boxiang Dong
 // February 23, 2021
 // Task 1(80 pts). Implement  the Merge  Sort algorithm  as  
 // discussed  in Lecture 2.  (Hint:  use the function checked 
