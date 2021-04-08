@@ -1,9 +1,6 @@
 // ************************************************************
 // Saba Syed   
 // February 23, 2021
-// Task 1(80 pts). Implement  the Merge  Sort algorithm  as  
-// discussed  in Lecture 2.  (Hint:  use the function checked 
-// sorted to check if your output is indeed sorted.)
 // ************************************************************
 public class Sort2 {
 
