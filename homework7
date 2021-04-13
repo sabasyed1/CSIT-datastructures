@@ -5,7 +5,7 @@
 
 public class LCS {
 	
-	public static int lcs_length (String X, String Y) {
+      public static int lcs_length (String X, String Y) {
 		// Task 1
       int s = X.length();
       int p = Y.length();
