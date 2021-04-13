@@ -1,16 +1,6 @@
 // ***************************************************************
 // Saba Syed   
 // March 1, 2021
-// Task 1 (40 pts). Implement the Quick  Sort algorithm as 
-// discussed in Lecture 4.(Hint: use the function checked_sorted
-// to check if your output is indeed sorted.)
-// Task 2 (40 pts). Implement the Counting Sort algorithm as 
-// discussed in Lecture 4.(Hint: use the function checked_sorted
-// to check if your outputis indeed sorted.)
-// Optional Task 4 (100 pts Extra Credit). Implement the Heap Sort
-// algorithm as discussed in Lecture 3.(Hint: use the function 
-// checked_sorted to check if your output is indeed sorted. Use 
-// the file Sort4.java if you plan to work on this task.)
 // ***************************************************************
  
 import java.util.*;
